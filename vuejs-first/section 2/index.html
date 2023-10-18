@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>VueJS Course</title>
-    <link rel="stylesheet" type="text/css" href="main.css" />
-  </head>
-  <body>
-    <div id="app">
-      <p>Hey</p>
+
+<head>
+  <title>VueJS Course</title>
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+  <div id="app">
+    <p>Hey</p>
+  </div>
+
+  <div id="app1">
+  </div>
+
+  <!-- <div id="app2">
+    <div class="card-container card-products">
+      <div class="card" @mouseover="onLogEvent">Mouse Over</div>
+
+      <hr>
+      <div class="card" @mouseleave="onLeaveEvent">Mouse leave</div>
+
+      <hr>
+      <div class="card" @dblclick="onDBEvent">dbclick</div>
     </div>
-  
-    <script src="https://unpkg.com/vue@next"></script>
-    <script src="app.js"></script>
-  </body>
+  </div> -->
+
+  <div id="app3">
+    <div class="card-container card-products">
+      <div class="card" v-for="pro in products">
+        <img v-bind:src="linkImg" />
+        <h3>{{pro.name}}</h3>
+        <p>{{pro.price}}</p>
+      </div>
+    </div>
+
+    {{productsComputed}}
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="app.js"></script>
+</body>
+
 </html>
