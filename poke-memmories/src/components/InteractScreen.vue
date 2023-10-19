@@ -19,7 +19,8 @@
         :card="{ index, value: card }"
         :rules="rules"
         @onFlip="checkRule($event)"
-      />
+      /> 
+      
     </div>
   </div>
 </template>
