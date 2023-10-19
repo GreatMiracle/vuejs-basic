@@ -8,6 +8,7 @@
     <interact-screen
       v-if="statusPlay === PLAYING"
       :cardsContext="setting.cardsContext"
+      @onFinish="onResult"
     ></interact-screen>
 
     <result-screen v-if="statusPlay === FINISH"></result-screen>
@@ -49,6 +50,7 @@ export default {
         cardsContext: [],
         startedAt: null,
       },
+      timer: 0,
     };
   },
 
@@ -72,6 +74,11 @@ export default {
       this.startedAt = new Date().getTime();
 
       this.statusPlay = StatusGame.PLAYING;
+    },
+
+    onResult() {
+      this.timer = new Date().getTime() - this.settings.startedAt;
+      this.statusPlay = StatusGame.FINISH;
     },
   },
 };

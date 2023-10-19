@@ -48,6 +48,21 @@ export default {
         this.$refs[`card-${this.rules[0].index}`][0].onEnabledDisabledMode();
         this.$refs[`card-${this.rules[1].index}`][0].onEnabledDisabledMode();
         this.rules = [];
+
+        this.$nextTick(() => {
+          const disabledElements = document.querySelectorAll(
+            ".screen .card.disabled"
+          );
+
+          if (
+            disabledElements &&
+            disabledElements.length === this.cardsContext.length
+          ) {
+            this.$emit("onFinish");
+          }
+
+          console.log("disabledElements", disabledElements);
+        });
       } else if (
         this.rules.length === 2 &&
         this.rules[0].value !== this.rules[1].value
