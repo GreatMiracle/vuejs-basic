@@ -1,12 +1,37 @@
 <template>
-  <div class="card" :class="{ disabled: isDisabled }">
+  <div
+    class="card"
+    :class="{ disabled: isDisabled }"
+    :style="{
+      height: `${(920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16}px`,
+      width: `${
+        (((920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) / 4
+      }px`,
+      perspective: `${
+        ((((920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) / 4) * 2
+      }px`,
+    }"
+  >
     <div
       class="card__inner"
       :class="{ 'is-flipped': isFipped }"
       @click="onToggleFlipCard"
     >
       <div class="card__face card__face--front">
-        <div class="card__content"></div>
+        <div
+          class="card__content"
+          :style="{
+            'background-size': `${
+              (((920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) /
+              4 /
+              3
+            }px ${
+              (((920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) /
+              4 /
+              3
+            }px`,
+          }"
+        ></div>
       </div>
 
       <div class="card__face card__face--back">
@@ -35,6 +60,12 @@ export default {
     rules: {
       type: Array,
     },
+    cardsContext: {
+      type: Array,
+      default: function () {
+        return [];
+      },
+    },
   },
   data() {
     return {
@@ -62,13 +93,11 @@ export default {
 };
 </script>
  
- <style lang="css" scoped>
+<style lang="css" scoped>
 .card {
   display: inline-block;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  width: 120px;
-  height: 90px;
 }
 
 .card__inner {
@@ -118,4 +147,3 @@ export default {
   width: 100%;
 }
 </style>
- 

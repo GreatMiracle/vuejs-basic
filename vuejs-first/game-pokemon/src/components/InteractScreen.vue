@@ -1,15 +1,26 @@
 <template>
   <div class="screen">
-    <h1>Interact</h1>
-    <card-component
-      v-for="(card, index) in cardsContext"
-      :key="index"
-      :imgBackFaceUrl="`images/${card}.png`"
-      :card="{ index: index, value: card }"
-      :ref="`card-${index}`"
-      :rules="rules"
-      @onFlip="checkRule($event)"
-    ></card-component>
+    <div
+      class="screen__inner"
+      :style="{
+        width: `${
+          ((((920 - 16 * 4) / Math.sqrt(cardsContext.length) - 16) * 3) / 4 +
+            16) *
+          Math.sqrt(cardsContext.length)
+        }px`,
+      }"
+    >
+      <card-component
+        v-for="(card, index) in cardsContext"
+        :key="index"
+        :imgBackFaceUrl="`images/${card}.png`"
+        :card="{ index: index, value: card }"
+        :ref="`card-${index}`"
+        :rules="rules"
+        :cardsContext="cardsContext"
+        @onFlip="checkRule($event)"
+      ></card-component>
+    </div>
   </div>
 </template>
 
@@ -93,12 +104,12 @@ export default {
   color: var(--light);
 }
 
-/* .screen__inner {
+.screen__inner {
   width: calc(424px);
   display: flex;
   flex-wrap: wrap;
   margin: 2rem auto;
-} */
+}
 </style>
 
  

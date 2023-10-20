@@ -7,6 +7,7 @@ export const StatusGame = {
 
 
 export const Difficulty = {
+  CHICKEN: 4,
   EASY: 16,
   NORMAL: 36,
   HARD: 64,

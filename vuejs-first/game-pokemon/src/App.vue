@@ -11,14 +11,16 @@
       @onFinish="onResult"
     ></interact-screen>
 
-    <result-screen v-if="statusPlay === FINISH"></result-screen>
+    <result-screen
+      v-if="statusPlay === FINISH"
+      :timer="timer"
+      @onStartAgain="onStartAgain"
+    >
+    </result-screen>
 
     <p class="copyright">
       This game modified by David Kambomoi in Vue 3 course for begginers -
-      <a
-        href="https://www.youtube.com/watch?v=CHM75-NqOmk&list=PLU4OBh9yHE94sZ3TPGt0QG_PIwrZ1QF6i"
-        >view here</a
-      >
+      <a href="#">view here</a>
     </p>
   </div>
 </template>
@@ -71,14 +73,22 @@ export default {
       console.log("cards", cards);
       //liệu rằng shuffled lồng ở đây có gây khó hơn shuffled 1 lần ko?
       this.setting.cardsContext = shuffled(shuffled(shuffled(cards)));
-      this.startedAt = new Date().getTime();
+      this.setting.startedAt = new Date().getTime();
+      // console.log("start", this.setting.startedAt);
 
       this.statusPlay = StatusGame.PLAYING;
     },
 
     onResult() {
-      this.timer = new Date().getTime() - this.settings.startedAt;
+      this.timer = new Date().getTime() - this.setting.startedAt;
+      console.log("now", new Date().getTime());
+      console.log("start", this.setting.startedAt);
+      console.log("timer", this.timer);
       this.statusPlay = StatusGame.FINISH;
+    },
+
+    onStartAgain() {
+      this.statusPlay = StatusGame.READY;
     },
   },
 };
