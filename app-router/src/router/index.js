@@ -24,6 +24,11 @@ const routes = [
     component: TransactionDetailView,
   },
   {
+    path: "/transactions",
+    name: "transactions-kien",
+    component: TransactionDetailView,
+  },
+  {
     path: "/:pathMatch(.*)",
     component: NotFoundComponent,
   },
