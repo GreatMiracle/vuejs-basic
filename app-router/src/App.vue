@@ -8,6 +8,20 @@
   <router-view />
 </template>
 
+<script>
+export default {
+  name: "App",
+
+  created() {
+    console.log(document.querySelector("h1"));
+  },
+
+  mounted() {
+    console.log(document.querySelector("h1"));
+  },
+};
+</script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
