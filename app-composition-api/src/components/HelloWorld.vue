@@ -15,7 +15,16 @@
 <script>
 import { computed, reactive, ref, watch, watchEffect } from 'vue';
 export default {
-  setup() {
+  props: {
+    theme: {
+      type: String,
+      default: 'light',
+    },
+  },
+
+  setup(props, context) {
+    console.log('props', props);
+    console.log('context', context);
     // const firstName = 'asc';
     const firstName = ref('1st');
     const car = reactive({

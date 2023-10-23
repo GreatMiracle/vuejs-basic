@@ -3,7 +3,9 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/transaction">404</router-link> |
-    <router-link :to="{ name: 'transactions-kien' }">tesstNAme</router-link>
+    <router-link :to="{ name: 'transaction-detail', params: { idKien: 1 } }"
+      >tesstNAme</router-link
+    >
   </nav>
   <router-view />
 </template>

@@ -5,3 +5,5 @@ fix lint:
 
 npm run lint --fix
 npm run lint
+
+npm install vuex@next --save

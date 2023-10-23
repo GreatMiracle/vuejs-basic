@@ -14,5 +14,15 @@ export default {
   components: {
     HelloWorld,
   },
+
+  data() {
+    return {
+      number: 1,
+    };
+  },
+  created() {
+    console.log(this.$store.state.count);
+    this.number = this.$store.state.count;
+  },
 };
 </script>
