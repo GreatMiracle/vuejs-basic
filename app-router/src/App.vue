@@ -3,6 +3,11 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
     <router-link to="/transaction">404</router-link> |
+    <router-link to="/todo">Todo</router-link> |
+    <router-link :to="{ name: 'todo-composition' }"
+      >Todo Composition</router-link
+    >
+    |
     <router-link :to="{ name: 'transaction-detail', params: { idKien: 1 } }"
       >tesstNAme</router-link
     >

@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import TransactionDetailView from "../views/TransactionDetailView.vue";
 import NotFoundComponent from "../views/404Page.vue";
+import TodoView from "../views/Todo.vue";
+import TodoComposition from "../views/TodoCompositionApi.vue";
 
 const routes = [
   {
@@ -27,6 +29,16 @@ const routes = [
     path: "/transactions",
     name: "transactions-kien",
     component: TransactionDetailView,
+  },
+  {
+    path: "/todo",
+    name: "todo",
+    component: TodoView,
+  },
+  {
+    path: "/todo-composition",
+    name: "todo-composition",
+    component: TodoComposition,
   },
   {
     path: "/:pathMatch(.*)",
